@@ -8,7 +8,8 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
-const basePath = import.meta.env.BASE_URL.replace(/\/+$/, "") || "/";
+const normalizedBase = import.meta.env.BASE_URL === "./" ? "/" : import.meta.env.BASE_URL;
+const basePath = normalizedBase.replace(/\/+$/, "") || "/";
 
 const App = () => (
   <ErrorBoundary>

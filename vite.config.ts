@@ -7,7 +7,8 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isProduction = mode === "production";
-  const basePath = isProduction ? "/tfi-on-the-go/" : "/";
+  const envBasePath = process.env.VITE_BASE_PATH;
+  const basePath = envBasePath ?? (isProduction ? "./" : "/");
 
   return {
     base: basePath,
